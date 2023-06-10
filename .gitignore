@@ -1,0 +1,24 @@
+frontend/node_modules
+frontend/.pnp
+.pnp.js
+
+# testing
+frontend/coverage
+
+# production
+frontend/build
+
+# misc
+frontend/Thumbs.db
+frontend/.DS_Store
+frontend/.env
+frontend/*.log*
+
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+# editors
+frontend/.idea
+frontend/*.sublime*
+frontend/.vscode
