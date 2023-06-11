@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { AppRoute } from '../../const';
 import MainScreen from '../../pages/main-screen/main-screen';
+import ProductListScreen from '../../pages/product-list-screen/ product-list-screen';
 
 function App(): JSX.Element {
   return (
@@ -8,6 +9,10 @@ function App(): JSX.Element {
       <Routes>
         <Route path={AppRoute.Main} element={
           <MainScreen />
+        }
+        />
+        <Route path={AppRoute.ProductList} element={
+          <ProductListScreen />
         }
         />
       </Routes>
