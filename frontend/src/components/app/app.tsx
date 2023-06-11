@@ -3,6 +3,7 @@ import { AppRoute } from '../../const';
 import MainScreen from '../../pages/main-screen/main-screen';
 import ProductListScreen from '../../pages/product-list-screen/ product-list-screen';
 import ProductScreen from '../../pages/product-screen/product-screen';
+import RegistrationScreen from '../../pages/registration-screen/registration-screen';
 
 function App(): JSX.Element {
   return (
@@ -14,6 +15,10 @@ function App(): JSX.Element {
         />
         <Route path={AppRoute.ProductList} element={
           <ProductListScreen />
+        }
+        />
+        <Route path={AppRoute.Registration} element={
+          <RegistrationScreen />
         }
         />
         <Route path={AppRoute.Product} element={
