@@ -7,41 +7,51 @@ import RegistrationScreen from '../../pages/registration-screen/registration-scr
 import AddItemScreen from '../../pages/add-item-screen/add-item-screen';
 import EditItemScreen from '../../pages/edit-item-screen/edit-item-screen';
 import ErrorScreen from '../../pages/error-screen/error-screen';
+import { GuitarCard } from '../../types/guitar-card.type';
+import { HelmetProvider } from 'react-helmet-async';
 
-function App(): JSX.Element {
+type AppScreenProps = {
+  cards: GuitarCard[];
+}
+
+function App({cards}:AppScreenProps): JSX.Element {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path={AppRoute.Main} element={
-          <MainScreen />
-        }
-        />
-        <Route path={AppRoute.ProductList} element={
-          <ProductListScreen />
-        }
-        />
-        <Route path={AppRoute.Registration} element={
-          <RegistrationScreen />
-        }
-        />
-        <Route path={AppRoute.AddItem} element={
-          <AddItemScreen />
-        }
-        />
-        <Route path={AppRoute.EditItem} element={
-          <EditItemScreen />
-        }
-        />
-        <Route path={AppRoute.Error} element={
-          <ErrorScreen />
-        }
-        />
-        <Route path={AppRoute.Product} element={
-          <ProductScreen />
-        }
-        />
-      </Routes>
-    </BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path={AppRoute.Main} element={
+            <MainScreen />
+          }
+          />
+          <Route path={AppRoute.ProductList} element={
+            <ProductListScreen
+              cards = {cards}
+            />
+          }
+          />
+          <Route path={AppRoute.Registration} element={
+            <RegistrationScreen />
+          }
+          />
+          <Route path={AppRoute.AddItem} element={
+            <AddItemScreen />
+          }
+          />
+          <Route path={AppRoute.EditItem} element={
+            <EditItemScreen />
+          }
+          />
+          <Route path='*' element={
+            <ErrorScreen />
+          }
+          />
+          <Route path={AppRoute.Product} element={
+            <ProductScreen />
+          }
+          />
+        </Routes>
+      </BrowserRouter>
+    </HelmetProvider>
   );
 }
 
