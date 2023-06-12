@@ -22,3 +22,4 @@ frontend/yarn-error.log*
 frontend/.idea
 frontend/*.sublime*
 frontend/.vscode
+backend/node_modules
