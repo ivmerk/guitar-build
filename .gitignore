@@ -23,3 +23,11 @@ frontend/.idea
 frontend/*.sublime*
 frontend/.vscode
 backend/node_modules
+backend/dist
+
+
+# Environments
+*.env
+/mongodb/
+/upload/
+backend/mongodb
