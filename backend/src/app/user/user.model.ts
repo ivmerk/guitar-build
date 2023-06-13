@@ -3,7 +3,7 @@ import { User } from '../../types/user.interface';
 import { Document } from 'mongoose';
 
 @Schema({
-  collection: 'users',
+  collection: 'user',
   timestamps: true,
 })
 export class UserModel extends Document implements User {

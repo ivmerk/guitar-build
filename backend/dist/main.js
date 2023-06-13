@@ -3,6 +3,7 @@ import { Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app/app.module.js';
+import { ConfigService } from '@nestjs/config';
 function bootstrap() {
     return __awaiter(this, void 0, void 0, function* () {
         const app = yield NestFactory.create(AppModule);
@@ -12,6 +13,7 @@ function bootstrap() {
             .setVersion('1.0')
             .build();
         const globalPrefix = 'api';
+        const configService = app.get(ConfigService);
         const document = SwaggerModule.createDocument(app, config);
         const port = process.env.PORT || 3333;
         app.setGlobalPrefix(globalPrefix);
@@ -21,6 +23,7 @@ function bootstrap() {
         }));
         yield app.listen(port);
         Logger.log(`🚀 Application is running on: http://localhost:${port}/${globalPrefix}`);
+        Logger.log(`🎯  Current mode: ${configService.get('application.environment')}`);
     });
 }
 bootstrap();
