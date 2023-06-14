@@ -13,8 +13,5 @@ export function getMongoConnectionString({
   databaseName?: string;
   authDatabase?: string;
 }): string {
-  console.log(
-    `mongodb://${username}:${password}@${host}:${port}/${databaseName}?authSource=${authDatabase}`
-  );
   return `mongodb://${username}:${password}@${host}:${port}/${databaseName}?authSource=${authDatabase}`;
 }

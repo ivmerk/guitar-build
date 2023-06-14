@@ -1,26 +1,30 @@
-import { ConflictException, Inject, Injectable } from '@nestjs/common';
-import { CreateUserDto } from './dto/create-user.dto';
+import {
+  ConflictException,
+  Injectable,
+  NotFoundException,
+  UnauthorizedException,
+} from '@nestjs/common';
+import { CreateUserDto } from './dto/create-user.dto.js';
 import { User } from '../../types/user.interface';
 import { UserRepository } from './user.repository.js';
 import { UserEntity } from './user.entity.js';
-import { AUTH_USER_EXISTS } from './user.constant.js';
-import dbConfig from '../config-app/db.config';
-import { ConfigType } from '@nestjs/config';
+import { createJWTPayload } from '../../utils/jwt.js';
+import { JwtService } from '@nestjs/jwt';
+import {
+  AUTH_USER_EXISTS,
+  AUTH_USER_NOT_FOUND,
+  AUTH_USER_PASSWORD_WRONG,
+} from './user.constant.js';
+import { LoginUserDto } from './dto/login-user.dto.js';
 
 @Injectable()
 export class UserService {
   constructor(
     private readonly userRepository: UserRepository,
-
-    @Inject(dbConfig.KEY)
-    private readonly databaseConfig: ConfigType<typeof dbConfig>
-  ) {
-    console.log(databaseConfig.host);
-    console.log(databaseConfig.user);
-  }
+    private readonly jwtService: JwtService
+  ) {}
   public async register(dto: CreateUserDto): Promise<User> {
     const { name, email, password } = dto;
-    console.log(this.databaseConfig.host);
     const newUser = {
       name,
       email,
@@ -34,6 +38,30 @@ export class UserService {
     }
     const userEntity = await new UserEntity(newUser).setPassword(password);
 
-    return this.userRepository.create(userEntity);
+    return await this.userRepository.create(userEntity);
+  }
+
+  public async createUserToken(user: User) {
+    const accessTokenPayload = createJWTPayload(user);
+
+    return {
+      accessToken: await this.jwtService.signAsync(accessTokenPayload),
+    };
+  }
+
+  public async verifyUser(dto: LoginUserDto) {
+    const { email, password } = dto;
+    const existUser = await this.userRepository.findByEmail(email);
+
+    if (!existUser) {
+      throw new NotFoundException(AUTH_USER_NOT_FOUND);
+    }
+
+    const blogUserEntity = new UserEntity(existUser);
+    if (!(await blogUserEntity.comparePassword(password))) {
+      throw new UnauthorizedException(AUTH_USER_PASSWORD_WRONG);
+    }
+
+    return blogUserEntity.toObject();
   }
 }
