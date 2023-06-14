@@ -17,10 +17,19 @@ export class CardsReposotory
 
   public async create(item: CardsEntity): Promise<Card> {
     const newCard = new this.cardsModel(item);
-    return newCard.save();
+    return await newCard.save();
   }
 
   public async findById(id: string): Promise<Card | null> {
-    return this.cardsModel.findById(id).populate(['userId']).exec();
+    return await this.cardsModel.findById(id).exec();
+  }
+
+  public async find(): Promise<Card[] | null> {
+    return await this.cardsModel.find().exec();
+  }
+
+  public async destroy(id: string): Promise<void> {
+    console.log(await this.cardsModel.findByIdAndDelete(id).exec());
+    await this.cardsModel.findByIdAndDelete(id).exec();
   }
 }

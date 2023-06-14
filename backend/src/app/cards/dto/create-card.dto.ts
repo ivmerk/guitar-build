@@ -2,7 +2,9 @@ import {
   IsIn,
   IsNumber,
   IsString,
+  Max,
   MaxLength,
+  Min,
   MinLength,
 } from 'class-validator';
 import {
@@ -10,7 +12,11 @@ import {
   guitarType,
   numberOfStrings,
 } from '../../../types/guitar-type.enum.js';
-import { DESCRIPTION_LENGTH, NAME_LENGTH } from '../cards.constant.js';
+import {
+  DESCRIPTION_LENGTH,
+  GUITAR_PRISE,
+  NAME_LENGTH,
+} from '../cards.constant.js';
 
 export class CreateCardDto {
   @IsString()
@@ -37,5 +43,7 @@ export class CreateCardDto {
   public numberOfStrings: number;
 
   @IsNumber()
+  @Min(GUITAR_PRISE.Min)
+  @Max(GUITAR_PRISE.Max)
   public price: number;
 }
