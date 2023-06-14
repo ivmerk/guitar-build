@@ -17,3 +17,10 @@ Content-Type: application/json
   "email": "us1gr@nffosadyyafrooo.loacal",
   "password": "123456"
 }
+
+
+###
+
+# Check user token
+POST http://localhost:3000/api/auth/check HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDg4YTdmNzE4Zjk3NGIwYjc3MjdkNGYiLCJlbWFpbCI6InVzMWdyQG5mZm9zYWR5eWFmcm9vby5sb2FjYWwiLCJuYW1lIjoiS2VrcyIsImlhdCI6MTY4NjczMTE2NSwiZXhwIjoxNjg2NzMxNzY1fQ.bST7N_ZOBkxiT4t9cWwuD86ChKMvlVrr8Wd1gB8qZI8 

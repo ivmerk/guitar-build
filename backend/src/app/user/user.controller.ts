@@ -16,6 +16,8 @@ import { LocalAuthGuard } from './guards/local-auth-guard.js';
 import { ApiResponse } from '@nestjs/swagger';
 import { RequestWithUser } from '../../types/request-with-user.js';
 import { AUTH_USER_EXISTS } from './user.constant.js';
+import { JwtAuthGuard } from './guards/jwt-auth.guard.js';
+import { RequestWithTokenPayload } from '../../types/request-with-token-payload.js';
 
 @Controller('auth')
 export class UserController {
@@ -40,5 +42,11 @@ export class UserController {
     } else {
       throw new ConflictException(AUTH_USER_EXISTS);
     }
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Post('check')
+  public async checkToken(@Req() { user: payload }: RequestWithTokenPayload) {
+    return payload;
   }
 }
