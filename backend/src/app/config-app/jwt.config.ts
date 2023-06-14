@@ -17,6 +17,7 @@ export default registerAs('jwt', (): JWTConfig => {
     accessTokenExpiresIn: Joi.string().required(),
   });
 
+  console.log(config);
   const { error } = validationSchema.validate(config, { abortEarly: true });
 
   if (error) {

@@ -1,7 +1,7 @@
 import { PassportStrategy } from '@nestjs/passport';
 import { Strategy } from 'passport-local';
 import { Injectable } from '@nestjs/common';
-import { UserService } from '../user/user.service';
+import { UserService } from '../user/user.service.js';
 import { UserEntity } from '../user/user.entity';
 
 const USERNAME_FIELD_NAME = 'email';

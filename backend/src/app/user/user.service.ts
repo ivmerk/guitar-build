@@ -8,7 +8,6 @@ import { CreateUserDto } from './dto/create-user.dto.js';
 import { User } from '../../types/user.interface';
 import { UserRepository } from './user.repository.js';
 import { UserEntity } from './user.entity.js';
-import { createJWTPayload } from '../../utils/jwt.js';
 import { JwtService } from '@nestjs/jwt';
 import {
   AUTH_USER_EXISTS,
@@ -16,6 +15,7 @@ import {
   AUTH_USER_PASSWORD_WRONG,
 } from './user.constant.js';
 import { LoginUserDto } from './dto/login-user.dto.js';
+import { TokenPayload } from '../../types/token-payload.interface.js';
 
 @Injectable()
 export class UserService {
@@ -42,10 +42,14 @@ export class UserService {
   }
 
   public async createUserToken(user: User) {
-    const accessTokenPayload = createJWTPayload(user);
+    const payload: TokenPayload = {
+      sub: user._id,
+      email: user.email,
+      name: user.name,
+    };
 
     return {
-      accessToken: await this.jwtService.signAsync(accessTokenPayload),
+      accessToken: await this.jwtService.signAsync(payload),
     };
   }
 
