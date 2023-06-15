@@ -7,7 +7,7 @@ export class CardRdo {
   public id: string;
 
   @Expose()
-  public name: string;
+  public title: string;
 
   @Expose()
   public description: string;

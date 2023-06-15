@@ -23,22 +23,21 @@ Content-Type: application/json
 
 # Check user token
 POST http://localhost:3000/api/auth/check HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDg4YTdmNzE4Zjk3NGIwYjc3MjdkNGYiLCJlbWFpbCI6InVzMWdyQG5mZm9zYWR5eWFmcm9vby5sb2FjYWwiLCJuYW1lIjoiS2VrcyIsImlhdCI6MTY4NjgwODkzNCwiZXhwIjoxNjg2ODA5NTM0fQ.tNZAJRJww1Xe9-WZAtp4W93VhynEnCnxgDaMxRaH3WA
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDhhYWI5YTk2MDFjZGEyNmQxYWRiYjQiLCJlbWFpbCI6ImFkbWluQG5mZm9zYWR5eWFmcm9vby5sb2FjYWwiLCJuYW1lIjoiYWRtaW4iLCJpYXQiOjE2ODY4MjEzNzcsImV4cCI6MTY4NjgyMTk3N30.8Df3kyj0_vzQwJTqmVv_rC3sqKi5aOWtZcj9W1y7TXw
 ###
 # Create a new card
 POST http://localhost:3000/api/cards HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDhhYWI5YTk2MDFjZGEyNmQxYWRiYjQiLCJlbWFpbCI6ImFkbWluQG5mZm9zYWR5eWFmcm9vby5sb2FjYWwiLCJuYW1lIjoiYWRtaW4iLCJpYXQiOjE2ODY4MDk1MTEsImV4cCI6MTY4NjgxMDExMX0.zsrCWFa7sUyMw5wG3KrMlPttbOwdEAAIkk7IXWIqy_g
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDhhYWI5YTk2MDFjZGEyNmQxYWRiYjQiLCJlbWFpbCI6ImFkbWluQG5mZm9zYWR5eWFmcm9vby5sb2FjYWwiLCJuYW1lIjoiYWRtaW4iLCJpYXQiOjE2ODY4MjI2MTIsImV4cCI6MTY4NjgyMzIxMn0.kVX7RUtn18lnDebOmIFgHEHYP03WR7i9JVj7RJdrz14
 Content-Type: application/json
 
 {
-  "name": "viasdfasdfasfdeo",
+  "title": "viasdfasdguiterflasfdeo",
   "description": "its some leettesrand little more name1",
   "picture": "https://www.youtube.com/watch?v=NYGL4hxPuxs",
-  "typeOfGuitar": "электро",
-  "article": "4352345",
-  "numberOfStrings": 4,
-  "price": 100
+  "typeOfGuitar": "Accustic",
+  "article": "4350023344235",
+  "numberOfStrings": 12,
+  "price": 2000
 }
 ###
 # Update card
@@ -47,7 +46,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDg4YTdmN
 Content-Type: application/json
 
 {
-  "name": "Heeeeeeeeeelllllo1234"
+  "title": "Heeeeeeeeeelllllo1234"
 }
 ###
 # Get post by id
