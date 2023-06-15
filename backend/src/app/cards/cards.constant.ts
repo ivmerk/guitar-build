@@ -15,3 +15,5 @@ export enum GUITAR_PRISE {
 export const DEFAULT_CARD_COUNT_LIMIT = 7;
 
 export const CARD_NOT_FOUND = 'Card not found';
+
+export const NEED_ADMIN_RIGTHS = 'Need admin rigths';

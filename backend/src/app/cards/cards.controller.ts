@@ -5,9 +5,11 @@ import {
   Get,
   HttpCode,
   HttpStatus,
+  NotFoundException,
   Param,
   Patch,
   Post,
+  Req,
   UseGuards,
 } from '@nestjs/common';
 import { CardsService } from './cards.service.js';
@@ -17,6 +19,9 @@ import { CardRdo } from './rdo/card.rdo.js';
 import { MongoidValidationPipe } from '../../utils/mongoid-validation.pipe.js';
 import { UpdateCardDto } from './dto/update-card.dto.js';
 import { JwtAuthGuard } from '../user/guards/jwt-auth.guard.js';
+import { RequestWithTokenPayload } from '../../types/request-with-token-payload.js';
+import { ADMIN_NAME } from '../../utils/common.constant.js';
+import { NEED_ADMIN_RIGTHS } from './cards.constant.js';
 
 @Controller('cards')
 export class CardsController {
@@ -24,9 +29,17 @@ export class CardsController {
 
   @UseGuards(JwtAuthGuard)
   @Post('/')
-  public async create(@Body() dto: CreateCardDto) {
-    const newCard = await this.cardsService.post(dto);
-    return fillObject(CardRdo, newCard);
+  public async create(
+    @Body() dto: CreateCardDto,
+    @Req() { user: payload }: RequestWithTokenPayload
+  ) {
+    if (payload?.name === ADMIN_NAME) {
+      console.log(payload);
+      const newCard = await this.cardsService.post(dto);
+      return fillObject(CardRdo, newCard);
+    } else {
+      throw new NotFoundException(NEED_ADMIN_RIGTHS);
+    }
   }
 
   @UseGuards(JwtAuthGuard)

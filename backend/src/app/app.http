@@ -3,8 +3,8 @@ POST http://localhost:3000/api/auth/register HTTP/1.1
 Content-Type: application/json
 
 {
-  "email": "us1gr@nffosadyyafrooo.loacal",
-  "name": "Keks",
+  "email": "admin@nffosadyyafrooo.loacal",
+  "name": "admin",
   "password": "123456"
 }
 ###
@@ -14,7 +14,7 @@ POST http://localhost:3000/api/auth/login HTTP/1.1
 Content-Type: application/json
 
 {
-  "email": "us1gr@nffosadyyafrooo.loacal",
+  "email": "admin@nffosadyyafrooo.loacal",
   "password": "123456"
 }
 
@@ -23,11 +23,12 @@ Content-Type: application/json
 
 # Check user token
 POST http://localhost:3000/api/auth/check HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDg4YTdmNzE4Zjk3NGIwYjc3MjdkNGYiLCJlbWFpbCI6InVzMWdyQG5mZm9zYWR5eWFmcm9vby5sb2FjYWwiLCJuYW1lIjoiS2VrcyIsImlhdCI6MTY4NjgwNzY1NCwiZXhwIjoxNjg2ODA4MjU0fQ.M_gWG8YDOPC2FDc8bOsC_bJ0-hfQeQuFj057djCSENY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDg4YTdmNzE4Zjk3NGIwYjc3MjdkNGYiLCJlbWFpbCI6InVzMWdyQG5mZm9zYWR5eWFmcm9vby5sb2FjYWwiLCJuYW1lIjoiS2VrcyIsImlhdCI6MTY4NjgwODkzNCwiZXhwIjoxNjg2ODA5NTM0fQ.tNZAJRJww1Xe9-WZAtp4W93VhynEnCnxgDaMxRaH3WA
 
 ###
 # Create a new card
 POST http://localhost:3000/api/cards HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDhhYWI5YTk2MDFjZGEyNmQxYWRiYjQiLCJlbWFpbCI6ImFkbWluQG5mZm9zYWR5eWFmcm9vby5sb2FjYWwiLCJuYW1lIjoiYWRtaW4iLCJpYXQiOjE2ODY4MDk1MTEsImV4cCI6MTY4NjgxMDExMX0.zsrCWFa7sUyMw5wG3KrMlPttbOwdEAAIkk7IXWIqy_g
 Content-Type: application/json
 
 {
