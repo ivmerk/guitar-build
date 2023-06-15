@@ -1,3 +1,9 @@
-export type GuitarType = 'электро' | 'аккустика' | 'укулеле';
-export const guitarType: GuitarType[] = ['электро', 'аккустика', 'укулеле'];
+export type GuitarType = 'Electro' | 'Accustic' | 'Ukulele';
+export enum GuitarTypeEnum {
+  Electro = 'Electro',
+  Accustic = 'Accustic',
+  Ukulele = 'Ukulele',
+}
+
+export const guitarType: GuitarType[] = ['Electro', 'Accustic', 'Ukulele'];
 export const numberOfStrings: Number[] = [4, 6, 7, 12];

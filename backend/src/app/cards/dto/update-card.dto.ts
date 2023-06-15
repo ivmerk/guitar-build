@@ -24,7 +24,7 @@ export class UpdateCardDto {
   @IsString()
   @MinLength(NAME_LENGTH.Min)
   @MaxLength(NAME_LENGTH.Max)
-  public name?: string;
+  public title?: string;
 
   @IsOptional()
   @IsString()

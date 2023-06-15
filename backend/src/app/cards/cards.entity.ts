@@ -3,9 +3,9 @@ import { GuitarType } from '../../types/guitar-type.enum';
 
 export class CardsEntity implements Card {
   _id?: string;
-  name: string;
+  title: string;
   description: string;
-  data: Date;
+  postDate: Date;
   picture: string;
   typeOfGuitar: GuitarType;
   article: string;
@@ -14,9 +14,9 @@ export class CardsEntity implements Card {
 
   constructor(card: Card) {
     this._id = card._id;
-    this.name = card.name;
+    this.title = card.title;
     this.description = card.description;
-    this.data = new Date();
+    this.postDate = new Date();
     this.picture = card.picture;
     this.typeOfGuitar = card.typeOfGuitar;
     this.article = card.article;

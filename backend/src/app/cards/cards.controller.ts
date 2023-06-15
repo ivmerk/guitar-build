@@ -34,7 +34,6 @@ export class CardsController {
     @Req() { user: payload }: RequestWithTokenPayload
   ) {
     if (payload?.name === ADMIN_NAME) {
-      console.log(payload);
       const newCard = await this.cardsService.post(dto);
       return fillObject(CardRdo, newCard);
     } else {

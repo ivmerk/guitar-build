@@ -2,9 +2,9 @@ import { GuitarType } from './guitar-type.enum';
 
 export interface Card {
   _id?: string;
-  name: string;
+  title: string;
   description: string;
-  data?: Date;
+  postDate?: Date;
   picture: string;
   typeOfGuitar: GuitarType;
   article: string;

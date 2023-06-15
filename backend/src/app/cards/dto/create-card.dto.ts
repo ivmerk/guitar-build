@@ -22,7 +22,7 @@ export class CreateCardDto {
   @IsString()
   @MinLength(NAME_LENGTH.Min)
   @MaxLength(NAME_LENGTH.Max)
-  public name: string;
+  public title: string;
 
   @IsString()
   @MinLength(DESCRIPTION_LENGTH.Min)

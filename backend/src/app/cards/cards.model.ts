@@ -11,7 +11,7 @@ export class CardsModel extends Document implements Card {
   @Prop({
     required: true,
   })
-  public name!: string;
+  public title!: string;
 
   @Prop({
     required: true,
@@ -21,7 +21,7 @@ export class CardsModel extends Document implements Card {
   @Prop({
     required: true,
   })
-  public data!: Date;
+  public postDate!: Date;
 
   @Prop({
     required: true,
