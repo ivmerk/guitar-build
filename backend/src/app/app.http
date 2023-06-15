@@ -23,7 +23,7 @@ Content-Type: application/json
 
 # Check user token
 POST http://localhost:3000/api/auth/check HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDg4YTdmNzE4Zjk3NGIwYjc3MjdkNGYiLCJlbWFpbCI6InVzMWdyQG5mZm9zYWR5eWFmcm9vby5sb2FjYWwiLCJuYW1lIjoiS2VrcyIsImlhdCI6MTY4NjczMTE2NSwiZXhwIjoxNjg2NzMxNzY1fQ.bST7N_ZOBkxiT4t9cWwuD86ChKMvlVrr8Wd1gB8qZI8 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDg4YTdmNzE4Zjk3NGIwYjc3MjdkNGYiLCJlbWFpbCI6InVzMWdyQG5mZm9zYWR5eWFmcm9vby5sb2FjYWwiLCJuYW1lIjoiS2VrcyIsImlhdCI6MTY4NjgwNzY1NCwiZXhwIjoxNjg2ODA4MjU0fQ.M_gWG8YDOPC2FDc8bOsC_bJ0-hfQeQuFj057djCSENY
 
 ###
 # Create a new card
@@ -42,14 +42,16 @@ Content-Type: application/json
 ###
 # Update card
 PATCH  http://localhost:3000/api/cards/6489a1cf9334d88f5d4af3f3 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDg4YTdmNzE4Zjk3NGIwYjc3MjdkNGYiLCJlbWFpbCI6InVzMWdyQG5mZm9zYWR5eWFmcm9vby5sb2FjYWwiLCJuYW1lIjoiS2VrcyIsImlhdCI6MTY4NjgwNzY1NCwiZXhwIjoxNjg2ODA4MjU0fQ.M_gWG8YDOPC2FDc8bOsC_bJ0-hfQeQuFj057djCSENY
 Content-Type: application/json
 
 {
-  "name": "Heeeeeeeeeelllllo"
+  "name": "Heeeeeeeeeelllllo1234"
 }
 ###
 # Get post by id
-GET http://localhost:3000/api/cards/6489d2f132812aeb53a0fbf4 HTTP/1.1
+GET http://localhost:3000/api/cards/6489a1cf9334d88f5d4af3f3 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDg4YTdmNzE4Zjk3NGIwYjc3MjdkNGYiLCJlbWFpbCI6InVzMWdyQG5mZm9zYWR5eWFmcm9vby5sb2FjYWwiLCJuYW1lIjoiS2VrcyIsImlhdCI6MTY4NjgwNzY1NCwiZXhwIjoxNjg2ODA4MjU0fQ.M_gWG8YDOPC2FDc8bOsC_bJ0-hfQeQuFj057djCSENY
 ###
 
 # Get cards
