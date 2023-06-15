@@ -32,4 +32,10 @@ export class CardsReposotory
     console.log(await this.cardsModel.findByIdAndDelete(id).exec());
     await this.cardsModel.findByIdAndDelete(id).exec();
   }
+
+  public async update(id: string, item: CardsEntity): Promise<Card | null> {
+    return await this.cardsModel
+      .findByIdAndUpdate(id, item.toObject(), { new: true })
+      .exec();
+  }
 }

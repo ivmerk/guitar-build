@@ -1,8 +1,9 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CardsReposotory } from './cards.repository.js';
 import { CreateCardDto } from './dto/create-card.dto.js';
 import { CardsEntity } from './cards.entity.js';
-// import { GuitarType } from '../../types/guitar-type.enum.js';
+import { UpdateCardDto } from './dto/update-card.dto.js';
+import { CARD_NOT_FOUND } from './cards.constant.js';
 
 @Injectable()
 export class CardsService {
@@ -21,18 +22,17 @@ export class CardsService {
     return await this.cardsRepository.findById(id);
   }
 
-  // public async getCards(
-  //   {
-  //     limit,
-  //     sortType,
-  //     page,
-  //   }: { limit: number; sortType: string | undefined; page: number },
-  //   {
-  //     guitarType,
-  //     numberOfStrings,
-  //   }: { guitarType: GuitarType[]; numberOfStrings: number[] }
-  // ) {}
   public async getCards() {
     return await this.cardsRepository.find();
+  }
+
+  public async updateCard(id: string, dto: UpdateCardDto) {
+    const oldCard = await this.cardsRepository.findById(id);
+    if (oldCard) {
+      const cardEntity = new CardsEntity({ ...oldCard, ...dto });
+      return await this.cardsRepository.update(id, cardEntity);
+    } else {
+      throw new NotFoundException(CARD_NOT_FOUND);
+    }
   }
 }

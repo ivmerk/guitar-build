@@ -6,16 +6,15 @@ import {
   HttpCode,
   HttpStatus,
   Param,
+  Patch,
   Post,
-  // Query,
 } from '@nestjs/common';
 import { CardsService } from './cards.service.js';
 import { CreateCardDto } from './dto/create-card.dto.js';
 import { fillObject } from '../../utils/common.js';
 import { CardRdo } from './rdo/card.rdo.js';
 import { MongoidValidationPipe } from '../../utils/mongoid-validation.pipe.js';
-// import { CardsQuery } from './query/cards.query.js';
-// import { FiltersDto } from './dto/filters.dto.js';
+import { UpdateCardDto } from './dto/update-card.dto.js';
 
 @Controller('cards')
 export class CardsController {
@@ -33,11 +32,14 @@ export class CardsController {
     return fillObject(CardRdo, existUser);
   }
 
-  // @Get('/')
-  // public async index(@Query() query: CardsQuery, @Body() filter: FiltersDto) {
-  //   const cards = await this.cardsService.getCards(query, filter);
-  //   return fillObject(CardRdo, cards);
-  // }
+  @Patch('/:id')
+  public async update(
+    @Param('id', MongoidValidationPipe) id: string,
+    @Body() dto: UpdateCardDto
+  ) {
+    const updatedPost = await this.cardsService.updateCard(id, dto);
+    return fillObject(CardRdo, updatedPost);
+  }
 
   @Get('/')
   public async index() {
