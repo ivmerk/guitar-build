@@ -50,10 +50,10 @@ export const logInAction = createAsyncThunk<
   }
 >('user/login', async ({ login: email, password }, { extra: api }) => {
   const {
-    data: { accessToken },
+    data: { accessToken, name },
   } = await api.post<UserData>(APIRoute.Login, { email, password });
   saveToken(accessToken);
-  return accessToken;
+  return name;
 });
 
 export const checkAuthAction = createAsyncThunk<

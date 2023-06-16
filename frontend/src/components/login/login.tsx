@@ -1,17 +1,13 @@
 import { ChangeEvent, FormEvent, useRef, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../../hooks';
+import { useAppDispatch} from '../../hooks';
 import { useNavigate } from 'react-router-dom';
 import { AuthData } from '../../types/auth-data';
 import { logInAction } from '../../store/api-action';
-import { AppRoute, AuthorizationStatus, EMAIL_REGEXP } from '../../const';
-import { getAuthorizationStatus } from '../../store/user-process/selectors';
-import { HelmetProvider } from 'react-helmet-async';
-import LoadingScreen from '../../pages/loading-screen/loading-screen';
+import { AppRoute, EMAIL_REGEXP } from '../../const';
 
 function Login(): JSX.Element {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const authorizationStatus = useAppSelector(getAuthorizationStatus);
 
   const loginRef = useRef<HTMLInputElement | null>(null);
   const passwordRef = useRef<HTMLInputElement | null>(null);
@@ -23,18 +19,7 @@ function Login(): JSX.Element {
   const onSubmit = (authData: AuthData) => {
     if (validPassword) {
       dispatch(logInAction(authData));
-      if(authorizationStatus === AuthorizationStatus.Unknown){
-        return(
-          <HelmetProvider>
-            <LoadingScreen/>
-          </HelmetProvider>
-        );
-      }
-      if (authorizationStatus === AuthorizationStatus.Auth) {
-        navigate(AppRoute.ProductList);} else{
-        navigate(AppRoute.Registration);
-      }
-    }
+      navigate(AppRoute.ProductList);}
   };
 
   const handleSubmit = (evt: FormEvent<HTMLFormElement>) => {

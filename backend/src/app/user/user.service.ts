@@ -50,6 +50,7 @@ export class UserService {
 
     return {
       accessToken: await this.jwtService.signAsync(payload),
+      name: user.name,
     };
   }
 
