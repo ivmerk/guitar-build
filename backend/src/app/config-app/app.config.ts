@@ -1,7 +1,6 @@
 import { registerAs } from '@nestjs/config';
 import * as Joi from 'joi';
-
-const DEFAULT_PORT = 3000;
+import { DEFAULT_PORT } from '../../utils/common.constant';
 
 export interface ApplicationConfig {
   environment?: string;

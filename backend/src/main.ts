@@ -3,6 +3,7 @@ import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app/app.module.js';
 import { ConfigService } from '@nestjs/config';
+import { DEFAULT_PORT } from './utils/common.constant.js';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -15,7 +16,22 @@ async function bootstrap() {
   const globalPrefix = 'api';
   const configService = app.get<ConfigService>(ConfigService);
   const document = SwaggerModule.createDocument(app, config);
-  const port = process.env.PORT || 3333;
+  const port = process.env.PORT || DEFAULT_PORT;
+
+  app.enableCors({
+    origin: [
+      'http://localhost:3001',
+      'http://localhost:3000',
+      'http://example.com',
+      'http://www.example.com',
+      'http://app.example.com',
+      'https://example.com',
+      'https://www.example.com',
+      'https://app.example.com',
+    ],
+    methods: ['GET', 'POST'],
+    credentials: true,
+  });
 
   app.setGlobalPrefix(globalPrefix);
   SwaggerModule.setup('spec', app, document);

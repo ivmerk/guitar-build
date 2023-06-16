@@ -7,3 +7,21 @@ export enum AppRoute {
   ProductList = '/products',
   Product = '/product',
 }
+
+export enum NameSpace {
+  Data = 'DATA',
+  Cards = 'CARDS',
+  User = 'USER',
+}
+
+export enum AuthorizationStatus {
+  Auth = 'AUTH',
+  NoAuth = 'NO_AUTH',
+  Unknown = 'UNKNOWN',
+}
+
+export enum APIRoute {
+  Cards = '/cards',
+  Login = '/login/auth',
+  Check = '/login/check',
+}

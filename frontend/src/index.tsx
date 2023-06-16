@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/app/app';
-import { GuitarCard } from './types/guitar-card.type';
-import { guitarCards } from './cards-sample_for_delete';
+import { Provider } from 'react-redux';
+import { store } from './store';
+import { loadCardsAction } from './store/api-action';
 
-const cards:GuitarCard[] = guitarCards;
+
+store.dispatch(loadCardsAction());
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
@@ -13,8 +15,8 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <App
-      cards = {cards}
-    />
+    <Provider store = {store}>
+      <App/>
+    </Provider>
   </React.StrictMode>,
 );

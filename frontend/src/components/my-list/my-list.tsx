@@ -1,12 +1,24 @@
-import { GuitarCard } from '../../types/guitar-card.type';
+import { useAppSelector } from '../../hooks';
+import { getCards, getIsCardsLoading } from '../../store/card-data/selectors';
 import CatalogFilter from '../catalog-filter/catalog-filter';
 import CatalogSort from '../catalog-sort/catalog-sort';
 import SmallCard from '../small-card/small-card';
+import { HelmetProvider } from 'react-helmet-async';
+import ErrorScreen from '../../pages/error-screen/error-screen';
 
-type MyListScreenProps = {
-  cards: GuitarCard[];
-}
-function MyList({cards}:MyListScreenProps): JSX.Element{
+function MyList(): JSX.Element{
+
+  const cards = useAppSelector(getCards);
+  const isCardsLoading = useAppSelector(getIsCardsLoading);
+
+  if(isCardsLoading){
+    return(
+      <HelmetProvider>
+        <ErrorScreen />
+      </HelmetProvider>
+    );
+  }
+  console.log(cards);
   return(
     <section className="product-list">
       <div className="container">
@@ -22,11 +34,9 @@ function MyList({cards}:MyListScreenProps): JSX.Element{
           <CatalogSort/>
           <div className="catalog-cards">
             <div className="catalog-cards__list">
-              <SmallCard card={cards[0]} key={cards[0].id} />
-              <SmallCard card={cards[0]} key={cards[0].id} />
-              {cards.map((card, _id) => (
-                <SmallCard card={card} key={card.id} />
-              ))}
+              <SmallCard card={cards[0]}/ >
+              <SmallCard card={cards[0]}/>
+
             </div>
           </div>
         </div>

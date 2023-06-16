@@ -2,7 +2,7 @@ import { GuitarType } from './guitar-type.enum';
 
 export type GuitarCard = {
   id?: string;
-  name: string;
+  title: string;
   description: string;
   data: Date;
   picture: string;

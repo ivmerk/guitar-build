@@ -10,7 +10,7 @@ function SmallCard({card}: SmallCardScreenProps):JSX.Element{
     <div className="catalog-item">
       <div className="catalog-item__data"><img src="img/content/catalog-product-1.png" srcSet="img/content/catalog-product-1@2x.png 2x" width="36" height="93" alt="Картинка гитары"/>
         <div className="catalog-item__data-wrapper">
-          <a className="link" href="./product.html"><p className="catalog-item__data-title">{card.name}</p></a>
+          <a className="link" href="./product.html"><p className="catalog-item__data-title">{card.title}</p></a>
           <p className="catalog-item__data-date">Дата добавления {formatStringToDate(card.data)}</p>
           <p className="catalog-item__data-price">{card.price} ₽</p>
         </div>

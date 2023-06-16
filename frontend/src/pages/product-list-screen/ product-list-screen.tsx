@@ -1,13 +1,8 @@
 import Footer from '../../components/footer/footer';
 import Header from '../../components/header/header';
 import MyList from '../../components/my-list/my-list';
-import { GuitarCard } from '../../types/guitar-card.type';
 
-type ProductListScreenProps = {
-  cards: GuitarCard[];
-}
-
-function ProductListScreen({cards}:ProductListScreenProps):JSX.Element{
+function ProductListScreen():JSX.Element{
   return(
 
     <>
@@ -16,9 +11,7 @@ function ProductListScreen({cards}:ProductListScreenProps):JSX.Element{
         <Header />
         <main className="page-content">
           <div className="container">
-            <MyList
-              cards = {cards}
-            />
+            <MyList/>
           </div>
         </main>
         <Footer />

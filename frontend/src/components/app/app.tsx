@@ -7,14 +7,10 @@ import RegistrationScreen from '../../pages/registration-screen/registration-scr
 import AddItemScreen from '../../pages/add-item-screen/add-item-screen';
 import EditItemScreen from '../../pages/edit-item-screen/edit-item-screen';
 import ErrorScreen from '../../pages/error-screen/error-screen';
-import { GuitarCard } from '../../types/guitar-card.type';
 import { HelmetProvider } from 'react-helmet-async';
 
-type AppScreenProps = {
-  cards: GuitarCard[];
-}
 
-function App({cards}:AppScreenProps): JSX.Element {
+function App(): JSX.Element {
   return (
     <HelmetProvider>
       <BrowserRouter>
@@ -24,9 +20,7 @@ function App({cards}:AppScreenProps): JSX.Element {
           }
           />
           <Route path={AppRoute.ProductList} element={
-            <ProductListScreen
-              cards = {cards}
-            />
+            <ProductListScreen/>
           }
           />
           <Route path={AppRoute.Registration} element={
