@@ -1,8 +1,14 @@
-import { ChangeEvent, useRef, useState } from 'react';
-import { EMAIL_REGEXP } from '../../const';
+import { ChangeEvent, FormEvent, useRef, useState } from 'react';
+import { AppRoute, EMAIL_REGEXP } from '../../const';
+import { useAppDispatch } from '../../hooks';
+import { useNavigate } from 'react-router-dom';
+import { RegData } from '../../types/reg-data';
+import { userRegAction } from '../../store/api-action';
 
 function Registration():JSX.Element{
 
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const nameRef = useRef<HTMLInputElement | null>(null);
   const emailRef = useRef<HTMLInputElement | null>(null);
@@ -12,6 +18,22 @@ function Registration():JSX.Element{
   const [validEmail, setValidEmail] = useState(false);
   const [validPassword, setValidPassword] = useState(false);
 
+  const onSubmit = (regData: RegData) => {
+    if (validPassword && validEmail && validName) {
+      dispatch(userRegAction(regData));
+      navigate(AppRoute.ProductList);}
+  };
+
+  const handleSubmit = (evt: FormEvent<HTMLFormElement>) => {
+    evt.preventDefault();
+    if (nameRef.current !== null && passwordRef.current !== null && emailRef.current !== null) {
+      onSubmit({
+        name: nameRef.current.value,
+        password: passwordRef.current.value,
+        email:emailRef.current.value,
+      });
+    }
+  };
   const onKeyDownCaptureHandle = (evt: ChangeEvent<HTMLInputElement>) =>{
     evt.preventDefault();
     if (nameRef.current !== null && passwordRef.current !== null && emailRef.current !== null) {
@@ -25,7 +47,8 @@ function Registration():JSX.Element{
       <h1 className="login__title">Регистрация</h1>
       <form
         method="post"
-        action="/"
+        action=""
+        onSubmit={handleSubmit}
       >
         <div className="input-login">
           <label htmlFor="name">Введите имя</label>

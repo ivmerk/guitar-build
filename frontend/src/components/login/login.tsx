@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useRef, useState } from 'react';
 import { useAppDispatch} from '../../hooks';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthData } from '../../types/auth-data';
 import { logInAction } from '../../store/api-action';
 import { AppRoute, EMAIL_REGEXP } from '../../const';
@@ -17,7 +17,7 @@ function Login(): JSX.Element {
 
 
   const onSubmit = (authData: AuthData) => {
-    if (validPassword) {
+    if (validPassword && validLogin) {
       dispatch(logInAction(authData));
       navigate(AppRoute.ProductList);}
   };
@@ -43,7 +43,11 @@ function Login(): JSX.Element {
   return(
     <section className="login">
       <h1 className="login__title">Войти</h1>
-      <p className="login__text">Hовый пользователь? <a className="login__link" href="registration.html">Зарегистрируйтесь</a> прямо сейчас</p>
+      <p className="login__text">Hовый пользователь?
+        <Link className="login__link" to={AppRoute.Registration}>
+          Зарегистрируйтесь
+        </Link> прямо сейчас
+      </p>
       <form
         method="post"
         action=""
