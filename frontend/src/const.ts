@@ -22,6 +22,12 @@ export enum AuthorizationStatus {
 
 export enum APIRoute {
   Cards = '/cards',
-  Login = '/login/auth',
-  Check = '/login/check',
+  Login = '/auth/login',
+  Check = '/auth/check',
+  Reg = '/auth/register',
 }
+
+export const DEFAULT_CARDS_COUNT = 7;
+
+export const EMAIL_REGEXP =
+  /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;

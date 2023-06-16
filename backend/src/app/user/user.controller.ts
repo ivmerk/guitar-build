@@ -2,6 +2,7 @@ import {
   Body,
   ConflictException,
   Controller,
+  Get,
   HttpCode,
   HttpStatus,
   Post,
@@ -45,7 +46,7 @@ export class UserController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Post('check')
+  @Get('check')
   public async checkToken(@Req() { user: payload }: RequestWithTokenPayload) {
     return payload;
   }

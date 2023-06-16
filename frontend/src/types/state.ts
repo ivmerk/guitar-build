@@ -5,6 +5,7 @@ import { GuitarType } from './guitar-type.enum';
 
 export type UserProcess = {
   authorizationStatus: AuthorizationStatus;
+  name: string;
 };
 
 export type CardData = {

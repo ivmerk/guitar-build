@@ -6,6 +6,9 @@ import { AppDispatch, State } from '../types/state';
 import { AxiosInstance } from 'axios';
 import { APIRoute } from '../const';
 import { GuitarCard } from '../types/guitar-card.type';
+import { UserResponse } from '../types/user-responce-type';
+import { User } from '../types/user.type';
+import { UserRegistrationResponse } from '../types/user-registration-responce.type';
 
 export const loadCardsAction = createAsyncThunk<
   GuitarCard[],
@@ -17,6 +20,23 @@ export const loadCardsAction = createAsyncThunk<
   }
 >('data/loadFilms', async (_arg, { extra: api }) => {
   const { data } = await api.get<GuitarCard[]>(APIRoute.Cards);
+  return data;
+});
+
+export const userRegAction = createAsyncThunk<
+  UserRegistrationResponse,
+  User,
+  {
+    dispatch: AppDispatch;
+    state: State;
+    extra: AxiosInstance;
+  }
+>('user/registration', async ({ email, name, password }, { extra: api }) => {
+  const { data } = await api.post<UserRegistrationResponse>(APIRoute.Reg, {
+    email,
+    name,
+    password,
+  });
   return data;
 });
 
@@ -46,7 +66,7 @@ export const checkAuthAction = createAsyncThunk<
   }
 >('user/checkAuth', async (_arg, { extra: api }) => {
   const {
-    data: { email },
-  } = await api.get<UserData>(APIRoute.Login);
-  return email;
+    data: { name },
+  } = await api.get<UserResponse>(APIRoute.Check);
+  return name;
 });

@@ -1,16 +1,16 @@
 # Create a new user
-POST http://localhost:3000/api/auth/register HTTP/1.1
+POST http://localhost:3330/api/auth/register HTTP/1.1
 Content-Type: application/json
 
 {
-  "email": "admin@nffosadyyafrooo.loacal",
-  "name": "admin",
+  "email": "admin@nffasdfosadyyafrooo.loacal",
+  "name": "adasdfmin",
   "password": "123456"
 }
 ###
 
 # Login user by email and password
-POST http://localhost:3000/api/auth/login HTTP/1.1
+POST http://localhost:3330/api/auth/login HTTP/1.1
 Content-Type: application/json
 
 {
@@ -22,8 +22,8 @@ Content-Type: application/json
 ###
 
 # Check user token
-POST http://localhost:3000/api/auth/check HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDhhYWI5YTk2MDFjZGEyNmQxYWRiYjQiLCJlbWFpbCI6ImFkbWluQG5mZm9zYWR5eWFmcm9vby5sb2FjYWwiLCJuYW1lIjoiYWRtaW4iLCJpYXQiOjE2ODY4MjEzNzcsImV4cCI6MTY4NjgyMTk3N30.8Df3kyj0_vzQwJTqmVv_rC3sqKi5aOWtZcj9W1y7TXw
+GET http://localhost:3330/api/auth/check HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDhhYWI5YTk2MDFjZGEyNmQxYWRiYjQiLCJlbWFpbCI6ImFkbWluQG5mZm9zYWR5eWFmcm9vby5sb2FjYWwiLCJuYW1lIjoiYWRtaW4iLCJpYXQiOjE2ODY5MTcyMzEsImV4cCI6MTY4NjkxNzgzMX0.1y1X1SBxAYLWyYDLLghDqesHYlF44cM9aVq7sNy8iPo
 ###
 # Create a new card
 POST http://localhost:3000/api/cards HTTP/1.1
