@@ -12,7 +12,8 @@ export class CardsService implements CardsServiceInterface {
   constructor(private readonly cardsRepository: CardsReposotory) {}
 
   public async post(dto: CreateCardDto): Promise<Card> {
-    const cardEntity = new CardsEntity({ ...dto });
+    const postDate = new Date(dto.postDate);
+    const cardEntity = new CardsEntity({ ...dto, postDate });
     return await this.cardsRepository.create(cardEntity);
   }
 

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Logo from '../logo/logo';
-import { AppRoute } from '../../const';
+import { AppRoute, loggedNavItems, } from '../../const';
 
 function Header():JSX.Element{
   return(
@@ -8,29 +8,18 @@ function Header():JSX.Element{
       <div className="container">
         <div className="header__wrapper">
           <Logo/>
+
           <nav className="main-nav">
             <ul className="main-nav__list">
-              <li className="main-nav__item">
-                <Link className="link main-nav__link"
-                  to={AppRoute.ProductList}
-                >
-                  Каталог
-                </Link>
-              </li>
-              <li className="main-nav__item">
-                <Link className="link main-nav__link"
-                  to={AppRoute.ProductList}
-                >
-                  Где купить?
-                </Link>
-              </li>
-              <li className="main-nav__item">
-                <Link className="link main-nav__link"
-                  to={AppRoute.ProductList}
-                >
-                  О компании
-                </Link>
-              </li>
+              {loggedNavItems.map((item) => (
+                <li className="main-nav__item" key={item}>
+                  <Link className="link main-nav__link"
+                    to={AppRoute.ProductList}
+                  >
+                    {item}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </nav>
           <div className="header__container">

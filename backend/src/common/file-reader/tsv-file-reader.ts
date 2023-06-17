@@ -37,7 +37,7 @@ export default class TSVFileReader implements FileReaderInterface {
           postDate: new Date(postDate),
           picture,
           typeOfGuitar:
-            GuitarTypeEnum[typeOfGuitar as 'Electro' | 'Accustic' | 'Ukulele'],
+            GuitarTypeEnum[typeOfGuitar as 'Elguitar' | 'Guitar' | 'Ukulele'],
           article,
           numberOfStrings: Number.parseInt(numberOfStrings, 10),
           price: Number.parseInt(price, 10),

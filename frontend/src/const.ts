@@ -31,3 +31,20 @@ export const DEFAULT_CARDS_COUNT = 7;
 
 export const EMAIL_REGEXP =
   /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+
+export const unloggedNavItems: string[] = [
+  'Каталог',
+  'Где купить?',
+  'О компании',
+];
+
+export const loggedNavItems: string[] = ['Каталог', 'Список товаров'];
+
+export const numberOfStrings: number[] = [4, 6, 7, 12];
+
+export enum PriceLimit {
+  Min = 10,
+  Max = 1000000,
+}
+
+export const PICTURE_URL_TMP = 'sample.jpg';

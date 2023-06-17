@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { CardData } from '../../types/state';
 import { NameSpace } from '../../const';
-import { loadCardsAction } from '../api-action';
+import { loadCardsAction, postCardAction } from '../api-action';
 
 const initialState: CardData = {
   cards: [],
@@ -29,6 +29,9 @@ export const cardData = createSlice({
       .addCase(loadCardsAction.rejected, (state) => {
         state.hasError = true;
         state.isCardsLoading = false;
+      })
+      .addCase(postCardAction.fulfilled, (state, action) => {
+        state.cards.push(action.payload);
       });
   },
 });

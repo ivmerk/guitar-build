@@ -16,7 +16,7 @@ export class CardsEntity implements Card {
     this._id = card._id;
     this.title = card.title;
     this.description = card.description;
-    this.postDate = new Date();
+    this.postDate = card.postDate;
     this.picture = card.picture;
     this.typeOfGuitar = card.typeOfGuitar;
     this.article = card.article;

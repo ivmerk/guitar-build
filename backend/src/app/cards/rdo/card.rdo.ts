@@ -13,7 +13,7 @@ export class CardRdo {
   public description: string;
 
   @Expose()
-  public data: Date;
+  public postDate: Date;
 
   @Expose()
   public picture: string;

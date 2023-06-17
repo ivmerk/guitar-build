@@ -1,12 +1,11 @@
 import { GuitarType } from './guitar-type.enum';
 
-export type GuitarCard = {
-  id?: string;
+export type CardData = {
   title: string;
   description: string;
-  postDate: Date;
   picture: string;
   typeOfGuitar: GuitarType;
+  postDate: string;
   article: string;
   numberOfStrings: number;
   price: number;

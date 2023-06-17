@@ -26,22 +26,23 @@ GET http://localhost:3330/api/auth/check HTTP/1.1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDhhYWI5YTk2MDFjZGEyNmQxYWRiYjQiLCJlbWFpbCI6ImFkbWluQG5mZm9zYWR5eWFmcm9vby5sb2FjYWwiLCJuYW1lIjoiYWRtaW4iLCJpYXQiOjE2ODY5MTcyMzEsImV4cCI6MTY4NjkxNzgzMX0.1y1X1SBxAYLWyYDLLghDqesHYlF44cM9aVq7sNy8iPo
 ###
 # Create a new card
-POST http://localhost:3000/api/cards HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDhhYWI5YTk2MDFjZGEyNmQxYWRiYjQiLCJlbWFpbCI6ImFkbWluQG5mZm9zYWR5eWFmcm9vby5sb2FjYWwiLCJuYW1lIjoiYWRtaW4iLCJpYXQiOjE2ODY4MjI2MTIsImV4cCI6MTY4NjgyMzIxMn0.kVX7RUtn18lnDebOmIFgHEHYP03WR7i9JVj7RJdrz14
+POST http://localhost:3330/api/cards HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDhhYWI5YTk2MDFjZGEyNmQxYWRiYjQiLCJlbWFpbCI6ImFkbWluQG5mZm9zYWR5eWFmcm9vby5sb2FjYWwiLCJuYW1lIjoiYWRtaW4iLCJpYXQiOjE2ODY5OTk5NzcsImV4cCI6MTY4NzAwMDU3N30.UvWqJmLAEnXKUAXONSJfBkTI33QumWYbciVbnMoe6gk
 Content-Type: application/json
 
 {
   "title": "viasdfasdguiterflasfdeo",
   "description": "its some leettesrand little more name1",
+  "postDate": "11.12.1999",
   "picture": "https://www.youtube.com/watch?v=NYGL4hxPuxs",
-  "typeOfGuitar": "Accustic",
+  "typeOfGuitar": "el-guitar",
   "article": "4350023344235",
   "numberOfStrings": 12,
   "price": 2000
 }
 ###
 # Update card
-PATCH  http://localhost:3000/api/cards/6489a1cf9334d88f5d4af3f3 HTTP/1.1
+PATCH  http://localhost:3330/api/cards/6489a1cf9334d88f5d4af3f3 HTTP/1.1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDg4YTdmNzE4Zjk3NGIwYjc3MjdkNGYiLCJlbWFpbCI6InVzMWdyQG5mZm9zYWR5eWFmcm9vby5sb2FjYWwiLCJuYW1lIjoiS2VrcyIsImlhdCI6MTY4NjgwNzY1NCwiZXhwIjoxNjg2ODA4MjU0fQ.M_gWG8YDOPC2FDc8bOsC_bJ0-hfQeQuFj057djCSENY
 Content-Type: application/json
 
@@ -50,16 +51,16 @@ Content-Type: application/json
 }
 ###
 # Get post by id
-GET http://localhost:3000/api/cards/6489a1cf9334d88f5d4af3f3 HTTP/1.1
+GET http://localhost:3330/api/cards/6489a1cf9334d88f5d4af3f3 HTTP/1.1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDg4YTdmNzE4Zjk3NGIwYjc3MjdkNGYiLCJlbWFpbCI6InVzMWdyQG5mZm9zYWR5eWFmcm9vby5sb2FjYWwiLCJuYW1lIjoiS2VrcyIsImlhdCI6MTY4NjgwNzY1NCwiZXhwIjoxNjg2ODA4MjU0fQ.M_gWG8YDOPC2FDc8bOsC_bJ0-hfQeQuFj057djCSENY
 ###
 
 # Get cards
-GET http://localhost:3000/api/cards/ HTTP/1.1
+GET http://localhost:3330/api/cards/ HTTP/1.1
 ###
 
 
 # Delete the post by id
-DELETE http://localhost:3000/api/cards/6489d2f132812aeb53a0fbf4 HTTP/1.1
+DELETE http://localhost:3330/api/cards/6489d2f132812aeb53a0fbf4 HTTP/1.1
 
 ###

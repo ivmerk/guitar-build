@@ -9,7 +9,7 @@ import {
 } from 'class-validator';
 import {
   GuitarType,
-  guitarType,
+  guitarTypes,
   numberOfStrings,
 } from '../../../types/guitar-type.enum.js';
 import {
@@ -32,8 +32,11 @@ export class CreateCardDto {
   @IsString()
   public picture: string;
 
-  @IsIn(guitarType)
+  @IsIn(guitarTypes)
   public typeOfGuitar: GuitarType;
+
+  @IsString()
+  public postDate: string;
 
   @IsString()
   public article: string;
